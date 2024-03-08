@@ -1,0 +1,14 @@
+.container-dasboard {
+    .header-dasboard {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: 1;
+    }
+
+
+    .footer-dasboard {
+        bottom: 0;
+        z-index: 1;
+    }
+}

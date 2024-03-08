@@ -1,0 +1,27 @@
+.container-header {
+
+    .flex-header {
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 100px;
+        color: white;
+
+        .title-header {
+            font-family: 'Yeseva One, cursive !important';
+
+            p {
+                font-weight: 600;
+                font-size: 2.5rem;
+            }
+        }
+
+        .list-page-header {
+            display: flex;
+            gap: 30px;
+
+            p {
+                cursor: pointer;
+            }
+        }
+    }
+}
