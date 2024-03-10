@@ -1,10 +1,11 @@
 .container-header {
+    background-color: hsla(0, 0%, 99.6%, .7);
 
     .flex-header {
         justify-content: space-between;
         align-items: center;
         padding: 0px 100px;
-        color: white;
+        color: black;
 
         .title-header {
             font-family: 'Yeseva One, cursive !important';
