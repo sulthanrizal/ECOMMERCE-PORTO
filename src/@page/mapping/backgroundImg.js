@@ -28,6 +28,7 @@ export const products = [
 
 ]
 
+
 export const backgroundImg = [
     {
         backgroundImgHome: 'https://vimcosmo.com/pics/home-cover.webp'
