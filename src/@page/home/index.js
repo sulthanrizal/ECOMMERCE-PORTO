@@ -2,13 +2,17 @@ import { Box, Flex, Text } from "@chakra-ui/react"
 import './home.scss'
 import { onClickNav } from "../../@helper/onClick"
 import { useNavigate } from "react-router-dom"
+import Product from "./product"
+import { backgroundImg, products } from "../mapping"
+
 
 const Home = () => {
     const navigate = useNavigate()
+    const homeBackground = backgroundImg.find(img => img?.backgroundImgHome);
     return (
         <Box className="container-home">
             <Box className="background-img-home">
-                <img src="https://vimcosmo.com/pics/home-cover.webp" />
+                <img src={homeBackground?.backgroundImgHome} />
                 <Box className="text-link-home">
                     <Text onClick={() => { onClickNav({ path: '/shop', navigate }) }}>Beauty & Cosmetic </Text>
                     <Text onClick={() => { onClickNav({ path: '/shop', navigate }) }}>Products</Text>
@@ -24,81 +28,18 @@ const Home = () => {
                     </Box>
                 </Box>
                 <Box className="box-body-home-second">
-                    <Flex className="title-body-home-second">
-                        <Text className="title-header-body-home-second">Popular Products</Text>
+                    <Flex className="body-home-second">
+                        <Text className="title-body-home-second">Popular Products</Text>
                         <Flex className="img-body-home-second">
-                            <Box className="flex-body-home-second">
-                                <img className="img-home-second" src="https://vimcosmo.com/pics/fenty-1.webp" />
-                                <Flex className="flex-body-title-price">
-                                    <Box className="title-price-home">
-                                        <Text>Fenty</Text>
-                                    </Box>
-                                    <Box className="rating-price-home">
-                                        <Box className="star-rating-home">
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                        </Box>
-                                        <Text>23.95$</Text>
-                                    </Box>
-                                </Flex>
-                            </Box>
-                            <Box className="flex-body-home-second">
-                                <img className="img-home-second" src="https://vimcosmo.com/pics/ilia-2.webp" />
-                                <Flex className="flex-body-title-price">
-                                    <Box className="title-price-home">
-                                        <Text>Illia</Text>
-                                    </Box>
-                                    <Box className="rating-price-home">
-                                        <Box className="star-rating-home">
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                        </Box>
-                                        <Text>38.65$</Text>
-                                    </Box>
-                                </Flex>
-                            </Box>
-                            <Box className="flex-body-home-second">
-                                <img className="img-home-second" src="https://vimcosmo.com/pics/kenzoki-2.webp" />
-                                <Flex className="flex-body-title-price">
-                                    <Box className="title-price-home">
-                                        <Text>Kenzoki hydration</Text>
-                                    </Box>
-                                    <Box className="rating-price-home">
-                                        <Box className="star-rating-home">
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                        </Box>
-                                        <Text>43.95$</Text>
-                                    </Box>
-                                </Flex>
-                            </Box>
-                            <Box className="flex-body-home-second">
-                                <img className="img-home-second" src="https://vimcosmo.com/pics/pixi-2.webp" />
-                                <Flex className="flex-body-title-price">
-                                    <Box className="title-price-home">
-                                        <Text>Pixi</Text>
-                                    </Box>
-                                    <Box className="rating-price-home">
-                                        <Box className="star-rating-home">
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                            <img src="https://vimcosmo.com/pics/star.svg" />
-                                        </Box>
-                                        <Text>36.95$</Text>
-                                    </Box>
-                                </Flex>
-                            </Box>
+                            {
+                                products?.map((item) => (
+                                    <Product
+                                        image1={item?.image1}
+                                        image2={item?.image2}
+                                        price={item?.price}
+                                        name={item?.name} />
+                                ))
+                            }
                         </Flex>
                     </Flex>
                 </Box>
@@ -184,7 +125,7 @@ const Home = () => {
                     </Flex>
                 </Box>
             </Box>
-        </Box>
+        </Box >
     )
 }
 export default Home;
