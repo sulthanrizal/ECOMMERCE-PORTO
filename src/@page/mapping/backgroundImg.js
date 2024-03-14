@@ -36,4 +36,7 @@ export const backgroundImg = [
     {
         backgroundImgShop: 'https://vimcosmo.com/pics/shop-hero.webp'
     },
+    {
+        backgroundImgAbout: 'https://vimcosmo.com/pics/about-hero.webp'
+    }
 ]
