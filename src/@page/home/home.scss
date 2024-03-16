@@ -288,16 +288,15 @@
     }
 
     .footer-home {
-        padding-top: 150px;
-        // display: flex;
-        // justify-content: center;
-        // flex-direction: column;
-        // align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+        padding: 150px 0px;
 
         .box-footer-home-first {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 100px;
 
             .footer-home-top-first {
                 justify-content: space-around;
