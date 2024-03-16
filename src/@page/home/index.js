@@ -2,13 +2,20 @@ import { Box, Flex, Text } from "@chakra-ui/react"
 import './home.scss'
 import { onClickNav } from "../../@helper/onClick"
 import { useNavigate } from "react-router-dom"
-import Product from "./product"
-import { backgroundImg, products } from "../mapping"
-
+import Product from "../mapping/product"
+import { backgroundImg } from "../mapping/backgroundImg"
+import { useEffect, useState } from "react"
+import { getProduct } from "../../@service/crud"
 
 const Home = () => {
+    const [product, setProduct] = useState([])
     const navigate = useNavigate()
     const homeBackground = backgroundImg.find(img => img?.backgroundImgHome);
+
+
+    useEffect(() => {
+        getProduct({ setProduct })
+    }, [])
     return (
         <Box className="container-home">
             <Box className="background-img-home">
@@ -24,7 +31,7 @@ const Home = () => {
                     <Box className="text-body-home-first">
                         <Text className="text-home-first">Made Only With Organic Materials</Text>
                         <Text className="text-home-second">Feel good about yourself with our 100% vegan formulas free from phthalates, parabens, triclosan, triclocarban, and hydroquinone.</Text>
-                        <Text className="text-home-threed">Browse products</Text>
+                        <Text className="text-home-threed" onClick={() => { onClickNav({ path: '/shop', navigate }) }}>Browse products</Text>
                     </Box>
                 </Box>
                 <Box className="box-body-home-second">
@@ -32,13 +39,17 @@ const Home = () => {
                         <Text className="title-body-home-second">Popular Products</Text>
                         <Flex className="img-body-home-second">
                             {
-                                products?.map((item) => (
+                                product?.map((item) => (
                                     <Product
                                         image1={item?.image1}
                                         image2={item?.image2}
                                         price={item?.price}
-                                        name={item?.name} />
+                                        name={item?.nameProduct} />
                                 ))
+                            }
+                            {
+                                console.log(product, 'ini product')
+
                             }
                         </Flex>
                     </Flex>
@@ -47,7 +58,7 @@ const Home = () => {
                     <Box className="text-body-home-threed">
                         <Text className="text-home-one">Be Extra Without Paying Extra</Text>
                         <Text className="text-home-two">With us, you'll get quality products at realistic prices. Your feedback and reviews guide everything we do get the best without killing wallet.</Text>
-                        <Text className="text-home-three">Browse product</Text>
+                        <Text className="text-home-three" onClick={() => { onClickNav({ path: '/shop', navigate }) }}>Browse product</Text>
                     </Box>
                     <img src="https://vimcosmo.com/pics/be-extra.webp" />
                 </Box>
