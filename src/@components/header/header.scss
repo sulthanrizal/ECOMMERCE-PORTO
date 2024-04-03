@@ -1,5 +1,6 @@
 .container-header {
     background-color: hsla(0, 0%, 99.6%, .7);
+    filter: drop-shadow(0px 6px 20px rgba(0, 0, 0, 0.3));
 
     .flex-header {
         justify-content: space-between;
@@ -19,6 +20,7 @@
         .list-page-header {
             display: flex;
             gap: 30px;
+            align-items: center;
 
             p {
                 cursor: pointer;
