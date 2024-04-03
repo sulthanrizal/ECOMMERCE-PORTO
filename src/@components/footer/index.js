@@ -14,8 +14,7 @@ const Footer = () => {
                 <Text>Subscribe to our</Text>
                 <Text>newsletters</Text>
                 <Box className="input-footer">
-                    <input type="email" name="email" />
-                    <span>Email</span>
+                    <input type="email" name="email" placeholder="Email" />
                 </Box>
                 <span className="span-input-footer">Subscribe</span>
             </Box>
