@@ -12,7 +12,7 @@
     }
 
     .input-email-footer {
-        position: relative;
+        z-index: 10;
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -36,20 +36,21 @@
             input {
                 background-color: #e6f2ff;
                 cursor: pointer;
-                position: relative;
                 width: 650px;
                 height: 60px;
                 border-radius: 99999px;
+                padding-left: 30px;
+                border: 0;
+                outline: 0;
             }
 
-            span {
-                position: absolute;
-                padding-left: 30px;
+            ::placeholder {
                 color: #6fb4f5;
             }
+
         }
 
-        .span-input-footer {
+        span {
             display: flex;
             height: 60px;
             width: 650px;
@@ -59,6 +60,7 @@
             color: white;
             font-weight: 700;
             background-color: rgb(0, 132, 255);
+            cursor: pointer;
         }
     }
 
